@@ -9,3 +9,4 @@ class TodoList(models.Model):
     startDate = models.DateTimeField(auto_now_add=True)
     dueDate = models.DateTimeField(null=True)
     itemID = models.BigAutoField(primary_key=True)
+    isComplete = models.BooleanField(default=False)

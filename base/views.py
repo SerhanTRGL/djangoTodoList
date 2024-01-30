@@ -1,7 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.views.generic.edit import CreateView
+from .models import TodoList
 
-# Create your views here.
+class CreateTodoListItem(CreateView):
+     model = TodoList
+     fields = ['title', 'description', 'dueDate', 'isComplete']
 
-def home_screen_view(request):
-     print(request.headers)
-     return render(request, "home.html", {})
+     def post(self, request):
+          return redirect("createnewitem")
+
