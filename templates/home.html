@@ -1,15 +1,25 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>This is the header</title>
-</head>
-
-<body>
-    <h1>Body</h1>
-</body>
-
-<footer>
-    <h4>Footer</h4>
-</footer>
-</html>
+<h1>Local Todo List</h1>
+<a href="{% url 'createnewitem' %}">Add new item to the list</a>
+<h2>Current incomplete tasks</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for todo_item in todo_list_items %} <!-- todo_list_items from views.py -->
+            {% if not todo_item.isComplete %}
+                <tr>
+                    <td> {{todo_item.title}}</td>
+                    <td>
+                        <a href="">Update</a>
+                        <a href="">Delete</a>
+                    </td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </tbody>
+</table>
+<a href="">Show all tasks</a>

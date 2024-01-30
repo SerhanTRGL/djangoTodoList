@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from base import views
 urlpatterns = [
+    path("", views.TodoListView.as_view(),  name="home"),
     path("admin/", admin.site.urls),
     path("create/", views.CreateTodoListItem.as_view(), name="createnewitem")
 ]
