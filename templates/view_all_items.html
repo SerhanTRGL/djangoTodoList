@@ -1,0 +1,26 @@
+<h1>All Items</h1>
+<a href="{% url 'home' %}">Back to Home</a>
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Completed</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for todo_item in todo_list_items %}
+            <tr>
+                <td>{{ todo_item.title }}</td>
+                {% if not todo_item.isComplete%}
+                    <td>no</td>
+                {%else%}
+                    <td>yes</td>
+                {%endif%}
+                <td>
+                        <a href="{% url 'updateitem' todo_item.pk%}">Update</a>
+                        <a href="{% url 'deleteitem' todo_item.pk%}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

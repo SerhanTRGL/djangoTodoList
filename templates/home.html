@@ -14,12 +14,12 @@
                 <tr>
                     <td> {{todo_item.title}}</td>
                     <td>
-                        <a href="">Update</a>
-                        <a href="">Delete</a>
+                        <a href="{% url 'updateitem' todo_item.pk%}">Update</a>
+                        <a href="{% url 'deleteitem' todo_item.pk%}">Delete</a>
                     </td>
                 </tr>
             {% endif %}
         {% endfor %}
     </tbody>
 </table>
-<a href="">Show all tasks</a>
+<a href="{% url 'viewallitems' %}">Show all tasks</a>

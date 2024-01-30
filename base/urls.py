@@ -20,5 +20,8 @@ from base import views
 urlpatterns = [
     path("", views.TodoListView.as_view(),  name="home"),
     path("admin/", admin.site.urls),
-    path("create/", views.CreateTodoListItem.as_view(), name="createnewitem")
+    path("create/", views.CreateTodoListItem.as_view(), name="createnewitem"),
+    path("update/<int:pk>", views.UpdateTodoListItem.as_view(), name="updateitem"),
+    path("delete/<int:pk>", views.DeleteTodoListItem.as_view(), name="deleteitem"),
+    path("viewallitems/", views.ViewAllItems.as_view(), name="viewallitems")
 ]

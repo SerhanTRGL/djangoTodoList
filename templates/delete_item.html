@@ -1,0 +1,10 @@
+<!-- delete_todo.html -->
+<h1>Confirm Deletion</h1>
+<p>Are you sure you want to delete "{{ todo_item.title }}"?</p>
+
+<form method="post" action="">
+    {% csrf_token %}
+    <input type="submit" value="Yes, delete">
+</form>
+
+<a href="{% url 'home' %}">Cancel</a>
