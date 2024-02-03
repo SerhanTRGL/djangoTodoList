@@ -20,6 +20,7 @@ class CreateTodoListItem(CreateView):
 
 class UpdateTodoListItem(UpdateView):
      model = TodoList
+
      fields = ['title', 'description', 'dueDate', 'isComplete']
      template_name = "update_item.html"
      success_url = reverse_lazy('home')
